@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { FaCircleXmark , FaAlignRight } from "react-icons/fa6";
 function Navbar() {
   const [nav, setNav] = useState(false);
 
@@ -15,7 +15,7 @@ function Navbar() {
             RdJobs
           </div>
           <button className="absolute top-2 right-5 md:hidden" onClick={change}>
-            {nav ? 'Close' : 'Menu'}
+            {nav ? <FaCircleXmark/> : <FaAlignRight />}
           </button>
           <ul className={`md:flex md:gap-6 transition-all duration-500 ease-in ${nav ? 'flex flex-col gap-2' : 'hidden md:flex'}`}>
             <li><a href="#">Home</a></li>

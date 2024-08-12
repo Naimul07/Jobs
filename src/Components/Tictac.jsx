@@ -30,7 +30,9 @@ function Tictac() {
                     <Box vari={value} onSquareClick={() => handleClick(i)} />
                 ))}
             </div>
-
+            <div className="text-red-600 font-semibold">
+                {status}
+            </div>
         </>
     )
 }

@@ -1,9 +1,10 @@
 import Tictac from "./Tictac"
-
+import { Link } from "react-router-dom"
 function Hero() {
 
   return (
     <>
+  
       <section className="flex-1 flex items-center justify-center">
         <div className="grid grid-cols-1 md:grid-cols-2 md:gap-8 gap-10">
           <div className="flex items-center justify-center">
@@ -17,7 +18,7 @@ function Hero() {
                   Find the React job that fits your skills and needs
                 </p>
                 <div className="flex justify-center">
-                  <button className="text-white p-3 border rounded-lg bg-blue-600 hover:bg-blue-800">Browse Jobs</button>
+                  <Link className="text-white p-3 border rounded-lg bg-blue-600 hover:bg-blue-800" to="/jobs" >Browse Jobs</Link>
                 </div>
 
               </div>

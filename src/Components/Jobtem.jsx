@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Jobtem({ joblist }) {
     const [less, setLess] = useState(true);
@@ -25,7 +26,7 @@ function Jobtem({ joblist }) {
                 <div className="border border-gray mb-5"></div>
                 <div className="flex flex-col md:flex-row md:justify-between">
                     <h3 className="text-yellow-700 mb-3">{joblist.location}</h3>
-                    <button className="border-2 rounded-xl text-white bg-blue-500 hover:bg-blue-600 p-2 ">Read More</button>
+                    <Link className="border-2 rounded-xl text-white bg-blue-500 hover:bg-blue-600 p-2 " to="/jobs">Read More</Link>
                 </div>
             </div>
         </>

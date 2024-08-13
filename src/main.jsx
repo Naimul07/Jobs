@@ -5,11 +5,13 @@ import './index.css'
 import HomePage from './Pages/HomePage';
 import MainLayOut from './Layout/MainLayOut';
 import JobsPage from './Pages/JobsPage';
+import NotFound from './Pages/NotFound';
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayOut/>,
+      errorElement:<NotFound/>,
       children:[
         {
           path:"",

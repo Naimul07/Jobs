@@ -20,7 +20,7 @@ function Navbar() {
           </button>
           <ul className={`md:flex md:gap-6 transition-all duration-500 ease-in ${nav ? 'flex flex-col gap-2' : 'hidden md:flex'}`}>
             <li><NavLink className={linkclass} to="/">Home</NavLink></li>
-            <li><NavLink className={linkclass} to="/jobs">Browse Jobs</NavLink></li>
+            <li><NavLink className={linkclass} to="/jobs">Jobs</NavLink></li>
             <li><NavLink className={linkclass} to="/enterJobs">Enter Jobs</NavLink></li>
             <li><NavLink className={linkclass} to="/signUp">SignUp</NavLink></li>
           </ul>

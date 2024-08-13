@@ -1,11 +1,12 @@
-
+import Jobs from "../Components/Jobs"
 
 function JobsPage() {
   return (
    <>
-   <div className="pt-16 ">
-<h1>hello</h1>
+   <div className="pt-14">
+    <Jobs isHome={true}/>
    </div>
+    
    </>
   )
 }

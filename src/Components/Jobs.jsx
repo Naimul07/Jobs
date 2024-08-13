@@ -5,7 +5,7 @@ import CircleLoader from "react-spinners/CircleLoader"
 function Jobs({ isHome = false }) {
     const [jobs, setJobs] = useState([]);
     const [load, setLoad] = useState(true)
-    const url = isHome ? 'http://localhost:8000/jobs' : 'http://localhost:8000/jobs?_limit=3';
+    const url = isHome ? '/api/jobs' : '/api/jobs?_limit=3';
     useEffect(() => {
         const fetchJobs = async () => {
             try {
@@ -30,7 +30,7 @@ function Jobs({ isHome = false }) {
                     <h1 className="p-4 text-center md:text-3xl text-2xl font-bold text-blue-600">Browse jobs</h1>
                     {load ?
                         (
-                            <div className="flex justify-center items-center h-64">
+                            <div className="flex h-screen justify-center items-center h-64">
                                 <CircleLoader size={200} />
                             </div>
                         ) :

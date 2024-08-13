@@ -20,7 +20,7 @@ function Jobtem({ joblist }) {
                 <div className="">
                     {less ? jobDes : joblist.description}
                 </div>
-                <button onClick={() => setLess(!less)} className="text-indigo-600 mb-5 hover:text-indigo-700">{less ? 'more' : 'less'}</button>
+                <button onClick={() => setLess(!less)} className="text-blue-800 mb-5 hover:text-blue-800">{less ? 'more' : 'less'}</button>
 
                 <h3 className="mb-3 text-blue-500">{joblist.salary}/year</h3>
                 <div className="border border-gray mb-5"></div>
@@ -29,7 +29,7 @@ function Jobtem({ joblist }) {
                         <FaLocationDot className="mr-2" />
                         {joblist.location}
                     </h3>
-                    <Link className="border-2 rounded-xl text-white bg-blue-500 hover:bg-blue-600 p-2 " to={`/jobs/${joblist.id}`}>Read More</Link>
+                    <Link className="border-2 text-center rounded-xl text-white bg-blue-500 hover:bg-blue-600 p-2 " to={`/jobs/${joblist.id}`}>Read More</Link>
                 </div>
             </div>
         </>

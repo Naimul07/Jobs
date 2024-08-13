@@ -29,7 +29,7 @@ function Jobtem({ joblist }) {
                         <FaLocationDot className="mr-2" />
                         {joblist.location}
                     </h3>
-                    <Link className="border-2 rounded-xl text-white bg-blue-500 hover:bg-blue-600 p-2 " to="/jobs">Read More</Link>
+                    <Link className="border-2 rounded-xl text-white bg-blue-500 hover:bg-blue-600 p-2 " to={`/jobs/${joblist.id}`}>Read More</Link>
                 </div>
             </div>
         </>

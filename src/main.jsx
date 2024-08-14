@@ -6,7 +6,8 @@ import HomePage from './Pages/HomePage';
 import MainLayOut from './Layout/MainLayOut';
 import JobsPage from './Pages/JobsPage';
 import NotFound from './Pages/NotFound';
-import SingleJob from './Pages/SingleJob';
+import SingleJob, { jobLoader } from './Pages/SingleJob';
+
 
 const router = createBrowserRouter([
     {
@@ -25,7 +26,8 @@ const router = createBrowserRouter([
         },
         {
           path:"jobs/:id",
-          element:<SingleJob/>
+          element:<SingleJob/>,
+          loader: jobLoader,
         }
       ],
     },

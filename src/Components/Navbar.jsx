@@ -11,7 +11,7 @@ function Navbar() {
   const linkclass = ({ isActive}) => isActive?"border-b border-b-2":"";
   return (
     <>
-      <div className={`text-white font-semibold fixed top-0 p-5 transition-all duration-500 ease-in ${nav ? 'bg-indigo-800 w-3/5 h-screen' : 'bg-indigo-600 w-full'}`}>
+      <div className={`text-white font-semibold fixed top-0 p-5 transition-all duration-500 ease-in ${nav ? 'bg-indigo-800 w-3/5 h-full' : 'bg-indigo-600 w-full'}`}>
         <nav className="relative flex flex-col md:flex-row md:justify-between gap-2 md:container md:mx-auto">
           <div className={`${nav?'hidden':'block'}`}>
             RdJobs

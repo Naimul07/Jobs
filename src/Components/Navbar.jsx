@@ -23,7 +23,7 @@ function Navbar() {
             <li><NavLink className={linkclass} to="/">Home</NavLink></li>
             <li><NavLink className={linkclass} to="/jobs">Jobs</NavLink></li>
             <li><NavLink className={linkclass} to="/enterJobs">AddJobs</NavLink></li>
-            <li><NavLink className={linkclass} to="/signUp">SignUp</NavLink></li>
+            {/* <li><NavLink className={linkclass} to="/signUp">SignUp</NavLink></li> */}
           </ul>
         </nav>
       </div>

@@ -10,8 +10,8 @@ function Cardjobs() {
       </Card>
       <Card bg="bg-blue-200"> 
         <h1 className="font-bold text-lg">For Employer</h1>
-        <h4>List your jobs and find the perfect developer</h4>
-        <button className="p-2 mt-2 border-2 rounded-md text-white bg-blue-500 hover:bg-blue-600" to = "/enterJobs">Browse jobs</button>
+        <h4 className="mb-4">List your jobs and find the perfect developer</h4>
+        <Link className="p-2 mt-2 border-2 rounded-md text-white bg-blue-500 hover:bg-blue-600" to = "/enterJobs">Browse jobs</Link>
         </Card>
     </div>
   )

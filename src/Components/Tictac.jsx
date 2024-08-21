@@ -1,9 +1,17 @@
 import Box from "./Box"
-import { useState } from "react"
-
+import { useState,useEffect } from "react"
+import { toast } from "react-toastify";
 function Tictac() {
     const [boxvalue, setBoxvalue] = useState(Array(9).fill(null));
     const [next, setNext] = useState(false);
+    const winner = calculateWinner(boxvalue);
+
+    useEffect(() => {
+        if (winner) {
+            toast.success("Winner: " + winner);
+        }
+    }, [winner]); 
+
     function handleClick(i) {
         if (boxvalue[i]||calculateWinner(boxvalue))
             return;
@@ -16,10 +24,10 @@ function Tictac() {
         setBoxvalue(nexSquares);
 
     }
-    const winner = calculateWinner(boxvalue);
     let status;
-    if (winner) {
+    if (winner) {    
         status = "Winner: " + winner;
+       
     } else {
         status = "Next player: " + (next ? "X" : "O");
     }

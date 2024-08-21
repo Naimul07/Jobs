@@ -15,20 +15,6 @@
       }
     },
     {
-      "id": "2",
-      "title": "Front-End Engineer (React & Redux)",
-      "type": "Full-Time",
-      "location": "Miami, FL",
-      "description": "Join our team as a Front-End Developer in sunny Miami, FL. We are looking for a motivated individual with a passion for crafting beautiful and responsive web applications. Experience with UI/UX design principles and a strong attention to detail are highly desirable.",
-      "salary": "$70K - $80K",
-      "company": {
-        "name": "Veneer Solutions",
-        "description": "Veneer Solutions is a creative agency specializing in digital design and development. Our team is dedicated to pushing the boundaries of creativity and innovation to deliver exceptional results for our clients.",
-        "contactEmail": "contact@loremipsum.com",
-        "contactPhone": "555-555-5555"
-      }
-    },
-    {
       "id": "3",
       "title": "React.js Dev",
       "type": "Full-Time",
@@ -86,44 +72,20 @@
     },
     {
       "id": "97de",
-      "title": "fgdfdgsf",
+      "title": "Hr technology",
       "type": "Full-time",
-      "location": "dsssssf",
-      "description": "dfssssssss",
+      "location": "Rangpur",
+      "description": "Hello i have completed a react based course to create this project",
       "salary": "$50k-$60k",
+      "companyName": "Hr Technology",
+      "comDes": "We are thrive to ensure digital enhancement for the global",
+      "contEmail": "dd@gmail.com",
+      "conPhone": "012588555",
       "company": {
-        "name": "errrrrrrrr",
-        "description": "ewwwwwwwwww",
-        "email": "e@gmail.com",
-        "phone": "0172556325"
-      }
-    },
-    {
-      "id": "ddcb",
-      "title": "fgdfdgsf",
-      "type": "Full-time",
-      "location": "dsssssf",
-      "description": "dfssssssss",
-      "salary": "$50k-$60k",
-      "company": {
-        "name": "errrrrrrrr",
-        "description": "ewwwwwwwwww",
-        "contactEmail": "e@gmail.com",
-        "contactPhone": "0172556325"
-      }
-    },
-    {
-      "id": "5b4d",
-      "title": "fgdfdgsf",
-      "type": "Full-time",
-      "location": "dsssssf",
-      "description": "dfssssssss",
-      "salary": "$50k-$60k",
-      "company": {
-        "name": "errrrrrrrr",
-        "description": "ewwwwwwwwww",
-        "contactEmail": "e@gmail.com",
-        "contactPhone": "0172556325"
+        "name": "Hr Technology",
+        "description": "We are thrive to ensure digital enhancement for the global",
+        "contactEmail": "dd@gmail.com",
+        "contactPhone": "012588555"
       }
     }
   ]

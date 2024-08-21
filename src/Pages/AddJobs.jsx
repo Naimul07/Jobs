@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from 'react-router-dom';
 
-function AddJobs() {
+function AddJobs({submitForm}) {
     const navigate = useNavigate();
 
     const [title, setTitle] = useState('');
@@ -31,25 +31,8 @@ function AddJobs() {
             }
         };
         // console.log(jobData);
-        try {
-            const response = await fetch('/api/jobs', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(jobData)
-            });
-            if (response.ok) {
-                const data = await response.json();
-                console.log('Job added:', data);
-                // Optionally reset form fields or show success message
-            } else {
-                console.error('Failed to add job:', response.statusText);
-            }
-        }
-        catch (error) {
-            console.log("error", error);
-        }
+        submitForm(jobData);
+        
     return navigate('/jobs');
     }
 

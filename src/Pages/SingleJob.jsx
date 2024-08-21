@@ -1,11 +1,37 @@
 // import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 import { FaAngleLeft, FaLocationDot } from "react-icons/fa6";
-import { useParams, useLoaderData } from "react-router-dom";
+import { useParams, useLoaderData, useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
+
+
 function SingleJob() {
   // const {id} = useParams();
   const job = useLoaderData();
-
+  const navigate = useNavigate();
+  async function handleDelete(id) {
+    try {
+      const response = await fetch(`/api/jobs/${id}`, {
+        method: 'DELETE',
+        
+      });
+      if (response.ok) {
+        toast.success("Job successfully deleted!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          theme: "dark", // Customize toast theme (optional)
+        });
+        navigate('/jobs');
+      }
+     
+    }
+    catch (error) {
+      console.log("error", error);
+    }
+   
+  }
   /* 
   useEffect(()=>{
     const fetchJobId = async()=>{
@@ -95,13 +121,12 @@ function SingleJob() {
           <div className="bg-white p-6 rounded-lg shadow-md mt-6 flex flex-col items-center justify-center">
             <div className="w-2/5">
               <h3 className="text-xl text-center font-bold mb-6">Manage Job</h3>
-              <a
-                href="/add-job.html"
+              <Link
+                to={`/jobs/edit/${job.id}`}
                 className="bg-indigo-500 hover:bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
-              >Edit Job</a
-              >
+              >Edit Job</Link>
               <button
-                className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
+             onClick={()=>handleDelete(job.id)}  className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
               >
                 Delete Job
               </button>

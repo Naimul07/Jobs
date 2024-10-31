@@ -56,7 +56,11 @@ Browse jobs
 
 Single Jobs
 
-![Single Jobs](https://github.com/Naimul07/Project_picture/blob/main/Single%20Jobs.jpg?raw=true) Add Jobs![Add jobs}](https://github.com/Naimul07/Project_picture/blob/main/Add%20jobs.jpg?raw=true)
+![Single Jobs](https://github.com/Naimul07/Project_picture/blob/main/Single%20Jobs.jpg?raw=true) 
+
+Add Jobs
+
+![Add jobs}](https://github.com/Naimul07/Project_picture/blob/main/Add%20jobs.jpg?raw=true)
 
 
 

@@ -36,9 +36,6 @@ Searchpage
 
 ![Search Page](![alt text](image.png))
 
-Edit/Delete jobpost
-
-![Edit/Delete jobpost](https://github.com/Naimul07/Project_picture/blob/main/Comment.jpg?raw=true)
 
 Browse jobs
 

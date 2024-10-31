@@ -21,7 +21,7 @@ The Job Management Application is a  platform designed to streamline the job lis
 ## Screenshots
 HomePage
 
-<<<<<<< HEAD
+
 ![HomePage](https://github.com/Naimul07/Project_picture/blob/main/React%20Jobs.jpg?raw=true)
 
 HomePage 2nd part

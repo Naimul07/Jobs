@@ -4,7 +4,7 @@ import { FaXmark, FaAlignRight } from "react-icons/fa6";
 
 function Navbar() {
   const [nav, setNav] = useState(false);
-
+  const token = localStorage.getItem('token');
   function change() {
     setNav(prevNav => !prevNav);
   }
@@ -23,7 +23,10 @@ function Navbar() {
             <li><NavLink className={linkclass} to="/">Home</NavLink></li>
             <li><NavLink className={linkclass} to="/jobs">Jobs</NavLink></li>
             <li><NavLink className={linkclass} to="/enterJobs">AddJobs</NavLink></li>
-            {/* <li><NavLink className={linkclass} to="/signUp">SignUp</NavLink></li> */}
+            {!!token ? (''):(
+               <li><NavLink className={linkclass} to="/signUp">SignIn</NavLink></li>
+            )}
+           
           </ul>
         </nav>
       </div>

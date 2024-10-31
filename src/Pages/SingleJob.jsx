@@ -3,34 +3,29 @@ import { Link } from "react-router-dom";
 import { FaAngleLeft, FaLocationDot } from "react-icons/fa6";
 import { useParams, useLoaderData, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
-
+import axios from "axios";
 
 function SingleJob() {
   // const {id} = useParams();
   const job = useLoaderData();
   const navigate = useNavigate();
+  const token = localStorage.getItem('token'); 
   async function handleDelete(id) {
+ // Retrieve token from localStorage
     try {
-      const response = await fetch(`/api/jobs/${id}`, {
-        method: 'DELETE',
-        
+      const response = await axios.delete(`/api/jobs/${id}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`, // Include Bearer token
+          'Content-Type': 'application/json'
+        }
       });
-      if (response.ok) {
-        toast.success("Job successfully deleted!", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          theme: "dark", // Customize toast theme (optional)
-        });
-        navigate('/jobs');
-      }
-     
+      toast(response.data.message);
+      navigate('/jobs')
+    } catch (error) {
+      console.error("Error:", error.data.message);
+      toast.error(error.response.data.message);
     }
-    catch (error) {
-      console.log("error", error);
-    }
-   
+
   }
   /* 
   useEffect(()=>{
@@ -96,10 +91,10 @@ function SingleJob() {
                 <div className="bg-white p-6 rounded-lg shadow-md">
                   <h3 className="text-xl font-bold mb-6">Company Info</h3>
 
-                  <h2 className="text-2xl">{job.company.name}</h2>
+                  <h2 className="text-2xl">{job.company_name}</h2>
 
                   <p className="my-2">
-                    {job.company.description}
+                    {job.company_description}
                   </p>
 
                   <hr className="my-4" />
@@ -107,12 +102,12 @@ function SingleJob() {
                   <h3 className="text-xl">Contact Email:</h3>
 
                   <p className="my-2 bg-indigo-100 p-2 font-bold">
-                    {job.company.contactEmail}
+                    {job.company_email}
                   </p>
 
                   <h3 className="text-xl">Contact Phone:</h3>
 
-                  <p className="my-2 bg-indigo-100 p-2 font-bold">{job.company.contactPhone}</p>
+                  <p className="my-2 bg-indigo-100 p-2 font-bold">{job.company_phone}</p>
                 </div>
               </aside>
             </div>
@@ -126,7 +121,7 @@ function SingleJob() {
                 className="bg-indigo-500 hover:bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
               >Edit Job</Link>
               <button
-             onClick={()=>handleDelete(job.id)}  className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
+                onClick={() => handleDelete(job.id)} className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
               >
                 Delete Job
               </button>
@@ -139,9 +134,21 @@ function SingleJob() {
 }
 
 const jobLoader = async ({ params }) => {
-  const res = await fetch(`/api/jobs/${params.id}`);
-  const data = await res.json();
-  return data;
-}
+  const token = localStorage.getItem('token'); // Retrieve token from localStorage
+
+  try {
+      const response = await axios.get(`/api/jobs/${params.id}`, {
+          headers: {
+              'Authorization': `Bearer ${token}`, // Include Bearer token
+              'Content-Type': 'application/json'
+          }
+      });
+      console.log(response);
+      return response.data; // Return the job data directly
+  } catch (error) {
+      console.error("Error loading job data:", error);
+      throw new Error("Failed to load job data"); // Throw an error if request fails
+  }
+};
 
 export { SingleJob as default, jobLoader };

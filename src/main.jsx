@@ -10,49 +10,48 @@ import SingleJob, { jobLoader } from './Pages/SingleJob';
 import AddJobs from './Pages/AddJobs';
 import SignUp from './Pages/SignUp';
 import EditJobs from './Pages/EditJobs';
+import Register from './Pages/Register';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+
 
 async function handleApiSubmit(newJob) {
+  const token = localStorage.getItem('token');
+  // console.log('hi',newJob);
   try {
-    const response = await fetch('/api/jobs', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newJob)
-    });
-    if (response.ok) {
-      const data = await response.json();
-      console.log('Job added:', data);
-      // Optionally reset form fields or show success message
-    } else {
-      console.error('Failed to add job:', response.statusText);
-    }
-  }
-  catch (error) {
-    console.log("error", error);
+      const response = await axios.post('/api/jobs', newJob, {
+          headers: {
+            
+              'Authorization': `Bearer ${token}`
+          }
+      });
+      toast.success("Job added successfully");
+      console.log('Job added:', response.data); // Log the added job
+      // Optionally reset form fields or show a success message
+  } catch (error) {
+      toast.error(error.response.data.message)
+      console.error('Failed to add job:', error.response ? error.response.statusText : error.message);
   }
 }
 
+// Function to handle editing a job
 async function handleEditForm(EditJobs) {
-  console.log('I am here');
-  const res = await fetch(`/api/jobs/${EditJobs.id}`, {
-    
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(EditJobs)
-
-  });
-  if (res.ok) {
-    const data = await res.json();
-    console.log('Job added:', data);
-    // Optionally reset form fields or show success message
+  const token = localStorage.getItem('token');
+  // console.log(EditJobs)
+  try {
+      const response = await axios.put(`/api/jobs/${EditJobs.id}`, EditJobs, {
+          headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+          }
+      });
+      toast.success("Job Edited successfully");
+      console.log('Job updated:', response.data.message); // Log the updated job
+      // Optionally reset form fields or show a success message
+  } catch (error) {
+    toast.error(error.response.data.message);
+      console.error('Failed to update job:', error.response ? error.response.statusText : error.message);
   }
-  else {
-    console.error('Failed to add job:', res.statusText);
-  }
- 
 }
 
 
@@ -84,6 +83,11 @@ const router = createBrowserRouter([
       {
         path: "signUp",
         element: <SignUp />,
+
+      },
+      {
+        path: "register",
+        element: <Register />,
 
       },
       {

@@ -1,11 +1,11 @@
 import { useForm } from 'react-hook-form';
-import {useParams, useNavigate, useLoaderData } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { useParams, useNavigate, useLoaderData } from 'react-router-dom';
+
 
 function EditJobs({ submitForm }) {
   const navigate = useNavigate();
   const job = useLoaderData();
-  const {id} = useParams();
+  const { id } = useParams();
   const { register, handleSubmit } = useForm({
     defaultValues: {
       title: job.title,
@@ -13,26 +13,29 @@ function EditJobs({ submitForm }) {
       location: job.location,
       description: job.description,
       salary: job.salary,
-      companyName: job.company.name,
-      comDes: job.company.description,
-      contEmail: job.company.contactEmail,
-      conPhone: job.company.contactPhone,
+      companyName: job.company_name,
+      comDes: job.company_description,
+      contEmail: job.company_email,
+      conPhone: job.company_phone,
     }
   });
 
   const onSubmit = (data) => {
     const jobData = {
-      id,
-      ...data,
-      company: {
-        name: data.companyName,
-        description: data.comDes,
-        contactEmail: data.contEmail,
-        contactPhone: data.conPhone,
-      },
+      id:job.id,
+      title:data.title,
+      type:data.type,
+      description:data.description,
+      salary:data.salary,
+      location:data.location,
+      company_name: data.companyName,
+      company_description: data.comDes,
+      company_email: data.contEmail,
+      company_phone: data.conPhone,
+
     };
     submitForm(jobData);
-    toast.success("Job Edited successfully");
+    
     navigate('/jobs');
   };
 

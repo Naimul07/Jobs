@@ -22,7 +22,7 @@ function SingleJob() {
       toast(response.data.message);
       navigate('/jobs')
     } catch (error) {
-      console.error("Error:", error.data.message);
+      // console.error("Error:", error);
       toast.error(error.response.data.message);
     }
 
